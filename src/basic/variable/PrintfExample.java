@@ -1,6 +1,6 @@
 package basic.variable;
 
-public class PrintExample {
+public class PrintfExample {
 
 	public static void main(String[] args) {
 		int value = 123;
