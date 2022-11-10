@@ -1,4 +1,4 @@
-package basic.conditional;
+package basic.control_flow_statement;
 
 public class SwitchStringExample {
 
