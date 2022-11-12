@@ -30,6 +30,8 @@ public class Test {
 		for (int i = 0; i < b.length; i++) {
 			System.arraycopy(b[i], 0, c[i], 0, b[i].length);
 		}
+		//b[0] = {5, 0, 0}
+		//b[1] = {0, 7, 10}
 
 		for(int i = 0; i < c.length; i++) {
 			for(int k = 0; k < c[i].length; k++) {
