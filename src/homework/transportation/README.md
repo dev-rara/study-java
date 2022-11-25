@@ -75,6 +75,6 @@
   - 최종 요금을 출력하는 것으로 합니다.
 <br>
 
-### 출력 결과
+## 출력 결과
 <img width="196" alt="Bus" src="https://user-images.githubusercontent.com/65327103/203927957-1777a498-2a79-492b-b1aa-0b346236f499.png">
 <img width="196" alt="Taxi" src="https://user-images.githubusercontent.com/65327103/203928035-1dee3467-5735-48aa-815c-37f038168ba3.png">
