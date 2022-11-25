@@ -1,10 +1,7 @@
 package homework.transportation;
 
 public abstract class PublicTransportation {
-	//번호
-	String number;
-
-	//연료량
+	//주유량
 	int fuel = 100;
 
 	//속도
@@ -20,11 +17,10 @@ public abstract class PublicTransportation {
 	int fee;
 
 	//상태
-	boolean state = true;
+	boolean status = true;
 
-	public PublicTransportation(String number, boolean state, int maxPassenger, int fee) {
-		this.number = number;
-		this.state = state;
+	public PublicTransportation(boolean status, int maxPassenger, int fee) {
+		this.status = status;
 		this.maxPassenger = maxPassenger;
 		this.fee = fee;
 	}
@@ -53,8 +49,8 @@ public abstract class PublicTransportation {
 		this.speed -= speed;
 	}
 
-	public void setState() {
-		this.state = !this.state;
+	public void setStatus() {
+		this.status = !this.status;
 	}
 
 	public void getFuel() {
@@ -74,6 +70,6 @@ public abstract class PublicTransportation {
 	}
 
 	abstract public void printInfo();
-	abstract public String getState();
-	abstract public void getFuelAndState();
+	abstract public String getStatus();
+	abstract public void getFuelAndStatus();
 }

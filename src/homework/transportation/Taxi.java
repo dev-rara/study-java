@@ -1,8 +1,12 @@
 package homework.transportation;
 
-import java.util.UUID;
-
 public class Taxi extends PublicTransportation {
+
+	//초기 번호
+	static int serialNum = 1;
+
+	//고유 번호
+	int number;
 
 	//목적지
 	String destination = "";
@@ -13,34 +17,20 @@ public class Taxi extends PublicTransportation {
 	//거리당 요금
 	int feeByDistance = 1000;
 
-	//누적요금
+	//지불해야할 요금
 	int totalFee;
 
-	//매상
-	int money;
-
+	//누적요금
+	int profit;
 
 	public Taxi() {
-		this(UUID.randomUUID().toString(), false, 4, 3000);
+		this(false, 4, 3000);
+		number = serialNum++;
 	}
 
-	public Taxi(String number, boolean state, int maxPassenger, int fee) {
-		super(number, state, maxPassenger, fee);
+	public Taxi(boolean status, int maxPassenger, int fee) {
+		super(status, maxPassenger, fee);
 	}
-
-	@Override
-	public void printInfo() {
-		totalFee = this.fee + ((this.distance - 1) * this.feeByDistance);
-
-		System.out.println("탑승 승객 수 = " + curPassenger);
-		System.out.println("잔여 승객 수 = " + (maxPassenger - curPassenger));
-		System.out.println("기본요금 확인 = " + this.fee);
-		System.out.println("목적지 = " + this.destination);
-		System.out.println("목적지까지 거리 = " + distance + "Km");
-		System.out.println("지불할 요금 = " + totalFee);
-		System.out.println("상태 = " + getState());
-	}
-
 
 	public void getInTaxi(int passenger, String destination, int distance) {
 		if (this.fuel < 10) {
@@ -56,28 +46,41 @@ public class Taxi extends PublicTransportation {
 		this.curPassenger += passenger;
 		this.destination = destination;
 		this.distance = distance;
-		setState();
+		setStatus();
 	}
 
 	@Override
-	public String getState() {
-		if (this.state) {
+	public void printInfo() {
+		totalFee = this.fee + ((this.distance - 1) * this.feeByDistance);
+
+		System.out.println("탑승 승객 수 = " + curPassenger);
+		System.out.println("잔여 승객 수 = " + (maxPassenger - curPassenger));
+		System.out.println("기본요금 확인 = " + this.fee);
+		System.out.println("목적지 = " + this.destination);
+		System.out.println("목적지까지 거리 = " + distance + "Km");
+		System.out.println("지불할 요금 = " + totalFee);
+		System.out.println("상태 = " + getStatus());
+	}
+
+	@Override
+	public String getStatus() {
+		if (this.status) {
 			return "운행중";
 		}
 		return "일반";
 	}
 
 	@Override
-	public void getFuelAndState() {
+	public void getFuelAndStatus() {
 		System.out.println("주유량 = " + this.fuel);
 
 		if (this.fuel == 0) {
 			System.out.println("상태 = 운행 불가");
 		} else {
-			System.out.println("상태 = " + getState());
+			System.out.println("상태 = " + getStatus());
 		}
 
-		System.out.println("누적 요금 = " + this.money);
+		System.out.println("누적 요금 = " + this.profit);
 
 		if (this.fuel < 10) {
 			System.out.println("주유가 필요합니다.");
@@ -85,8 +88,8 @@ public class Taxi extends PublicTransportation {
 	}
 
 	public void pay() {
-		money += totalFee;
-		setState();
+		profit += totalFee;
+		setStatus();
 		getOff(this.curPassenger);
 	}
 }

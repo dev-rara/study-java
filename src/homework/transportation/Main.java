@@ -3,7 +3,7 @@ package homework.transportation;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("============ Bus ============");
+		System.out.println("========== Bus ==========");
 		Bus bus1 = new Bus();
 		Bus bus2 = new Bus();
 
@@ -21,12 +21,12 @@ public class Main {
 		bus1.getFuel();
 
 		//상태변경, 주유량 +10
-		bus1.setState();
+		bus1.setStatus();
 		bus1.addFuel(10);
-		bus1.getFuelAndState();
+		bus1.getFuelAndStatus();
 
 		// 승객 +45
-		bus1.setState();
+		bus1.setStatus();
 		bus1.getOn(45);
 
 		//승객 +5
@@ -36,9 +36,9 @@ public class Main {
 
 		//주유량 -55
 		bus1.useFuel(55);
-		bus1.getFuelAndState();
+		bus1.getFuelAndStatus();
 
-		System.out.println("============ Taxi ============");
+		System.out.println("========== Taxi ==========");
 		Taxi taxi1 = new Taxi();
 		Taxi taxi2 = new Taxi();
 
@@ -55,13 +55,13 @@ public class Main {
 
 		//요금 결제
 		taxi1.pay();
-		taxi1.getFuelAndState();
+		taxi1.getFuelAndStatus();
 
 		//승객 +5
 		taxi1.getOn(5);
 
 		//승객 +3, 목적지(구로디지털단지역), 목적지까지 거리(12)
-		taxi1.getInTaxi(3,"구로디지털단지역", 12);
+		taxi1.getInTaxi(3, "구로디지털단지역", 12);
 		taxi1.printInfo();
 
 		//주유량 -20
@@ -69,7 +69,7 @@ public class Main {
 
 		//요금 결제
 		taxi1.pay();
-		taxi1.getFuelAndState();
+		taxi1.getFuelAndStatus();
 	}
 
 }

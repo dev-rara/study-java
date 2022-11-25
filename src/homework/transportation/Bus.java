@@ -1,15 +1,20 @@
 package homework.transportation;
 
-import java.util.UUID;
-
 public class Bus extends PublicTransportation {
 
+	//초기 번호
+	static int serialNum = 1;
+
+	//고유 번호
+	int number;
+
 	public Bus() {
-		this(UUID.randomUUID().toString(), true, 30, 1000);
+		this(true, 30, 1000);
+		number = serialNum++;
 	}
 
-	public Bus(String uuid, boolean state, int maxPassenger, int fee) {
-		super(uuid, state, maxPassenger, fee);
+	public Bus(boolean state, int maxPassenger, int fee) {
+		super(state, maxPassenger, fee);
 	}
 
 	@Override
@@ -20,17 +25,17 @@ public class Bus extends PublicTransportation {
 	}
 
 	@Override
-	public String getState() {
-		if (this.state) {
+	public String getStatus() {
+		if (this.status) {
 			return "운행중";
 		}
 		return "차고지행";
 	}
 
 	@Override
-	public void getFuelAndState() {
+	public void getFuelAndStatus() {
 		System.out.println("주유량 = " + this.fuel);
-		System.out.println("상태 = " + getState());
+		System.out.println("상태 = " + getStatus());
 
 		if (this.fuel < 10) {
 			System.out.println("주유가 필요합니다.");
@@ -42,7 +47,7 @@ public class Bus extends PublicTransportation {
 		this.fuel -= amount;
 
 		if (this.fuel < 10) {
-			this.state = false;
+			this.status = false;
 		}
 	}
 }
