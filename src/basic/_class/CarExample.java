@@ -14,7 +14,11 @@ public class CarExample {
 		myCar.setSpeed(60);
 		System.out.println("수정된 속도: " + myCar.getSpeed());
 
-		System.out.println("======== getter & setter ========");
+		System.out.println("====== 생성자 ======");
+		Car myCar2 = new Car("black", 3000);
+
+
+		System.out.println("====== getter & setter ======");
 		Car car = new Car();
 
 		//잘못된 속도 변경

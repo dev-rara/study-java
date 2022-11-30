@@ -1,13 +1,22 @@
 package basic._class;
 
 public class Car {
-	String company = "현대자동차";
-	String model = "그랜저";
-	String color = "검정";
+	String company;
+	String model;
+	String color;
+
+	int cc;
 	final static int maxSpeed = 350;
 	private int speed;
 
 	private boolean stop;
+
+	public Car() {}
+
+	public Car(String color, int cc) {
+		this.color = color;
+		this.cc = cc;
+	}
 
 	public int getSpeed() {
 		return speed;
