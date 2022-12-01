@@ -24,8 +24,8 @@ class Person {
 }
 
 // Student 클래스 - Person 상속, 접근제어자 확인
-class Student extends Person {
-	Student() {
+class Student1 extends Person {
+	Student1() {
 		a1 = 1;   //public 이므로 사용가능
 //		a2 = 1;   //private 이므로 사용 불가능
 	}
@@ -63,7 +63,7 @@ public class Main {
 //      Test code
 //      1. 상속
 		System.out.println("=============");
-        Student s1 = new Student();
+        Student1 s1 = new Student1();
         s1.name = "a";
         s1.age = 25;
         s1.printInfo();
